@@ -1,0 +1,16 @@
+# Kotlin-specific files
+*.kt~
+*.kotlin_builtins
+
+# Compiled bytecode
+*.class
+*.jar
+
+# IDE-specific files
+.idea/
+.gradle/
+build/
+
+# Dependency directories
+/bin/
+/out/
