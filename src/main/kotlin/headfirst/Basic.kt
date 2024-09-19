@@ -79,3 +79,37 @@ fun forArrayIndexWithItem() {
         println("Index $index has item $item")
     }
 }
+
+fun whenOperator() {
+    /* Оператор when проверяет переменную по нескольким вариантам */
+    val x = 0
+    when (x) {
+        0 -> println("x is zero")
+        1, 2 -> println("x is 1 or 2")
+        else -> {
+            println("x is neither 0, 1 nor 2")
+            println("x is some other value")
+        }
+    }
+
+    /* может использоваться как выражение */
+    var y = when (x) {
+        0 -> true
+        else -> false
+    }
+
+    /* может использоваться как выражение. Не явное приведение типов:
+    when (roamable) {
+        is Wolf -> {}
+        is Hippo -> {}
+        is Animal -> {}
+    } */
+
+    /* явное привидение типов:
+    var animal: Animal = Wolf()
+    if (animal is Wolf) {
+        val wolf = animal as Wolf
+        wolf.eat()
+    }
+    */
+}
