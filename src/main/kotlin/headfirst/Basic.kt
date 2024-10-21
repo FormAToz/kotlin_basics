@@ -108,8 +108,12 @@ fun whenOperator() {
     /* явное привидение типов:
     var animal: Animal = Wolf()
     if (animal is Wolf) {
-        val wolf = animal as Wolf
+        val wolf = animal as Wolf // Exception, если wolf не содержит ссылку на объект Wolf
         wolf.eat()
     }
+
+    Безопасное приведение типов. animal реобразуется как объект Wolf, если переменная содержит объект
+    этого типа; в противном случае возвращается null:
+    val wolf = animal as? Wolf
     */
 }
