@@ -55,4 +55,26 @@ fun main(args: Array<String>) {
     val newPrices = groceries.filter { it.unitPrice > 3.0 }
         .map { it.unitPrice * 2 }
     println("newPrices: $newPrices")
+
+    /* Группировка элементов groceries (List<Grocery>) по значению category.
+    Функция вернет Map<String, List<Grocery>>. Далее выведем все значения, ассоциированные с ключами */
+    groceries.groupBy { it.category }.forEach {
+        println(it.key)
+        it.value.forEach { println(" ${it.name}") }
+    }
+
+    /* С функцией fold можно задать исходное значение и выполнить некоторую операцию для каждого элемента коллекции */
+    val ints = listOf(1, 2, 3)
+    /* Прибавления всех элементов к исходному значению 0 */
+    val sumOfInts = ints.fold(0) { runningSum, item -> runningSum + item }
+    println("sumOfInts: $sumOfInts")
+    /* Перемножаем все числа */
+    val productOfInts = ints.fold(1) { runningProduct, item -> runningProduct * item }
+    println("productOfInts: $productOfInts")
+    /* Вывод строки со значениями name каждого элемента Grocery */
+    val names = groceries.fold("") { string, item -> string + " ${item.name}" }
+    println("names: $names")
+    /* Расчет остатка после покупки всех товаров из списка List<Grocery> с начальной суммой в 50 */
+    val changeFrom50 = groceries.fold(50.0) { change, item -> change - item.unitPrice * item.quantity }
+    println("changeFrom50: $changeFrom50")
 }
